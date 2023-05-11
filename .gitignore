@@ -1,0 +1,55 @@
+# Bundle directory
+/.bundle
+
+# Coverage report
+/coverage/
+
+# Build assets
+/public/assets/
+/public/packs/
+/public/packs-test/
+/public/packs-prod/
+
+# macOS system files
+.DS_Store
+
+# Node.js dependencies
+node_modules/
+
+# Package lock files
+yarn.lock
+package-lock.json
+
+# Build folders
+/build
+/out
+.next/
+
+# Secret key files
+*.key
+
+# PEM files
+*.pem
+
+# SQLite database files
+*.sqlite3
+*.sqlite3-journal
+
+# Environment variables
+.env*
+.env.local*
+.env.development.local*
+.env.test.local*
+.env.production.local*
+
+# For backend (Ruby)
+/backend/.ruby-version
+/backend/log/*
+/backend/tmp/*
+!/backend/log/.keep
+!/backend/tmp/.keep
+
+# For frontend (Node.js)
+/frontend/node_modules
+/frontend/.next
+/frontend/package-lock.json

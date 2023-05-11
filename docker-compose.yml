@@ -1,0 +1,33 @@
+version: '3'
+services:
+  db:
+    container_name: db
+    image: mysql:latest
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+  backend:
+    container_name: backend
+    build: ./backend
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    volumes:
+      - ./backend:/original_product
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+  frontend:
+    container_name: frontend
+    build: ./frontend
+    volumes:
+      - ./frontend:/app
+      - /app/.next
+    ports:
+      - "3001:3001"
+volumes:
+  db_data: {}
